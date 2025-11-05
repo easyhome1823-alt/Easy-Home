@@ -208,7 +208,8 @@ export async function searchProperties(filters: {
     }
     
     if (filters.type) {
-      q = query(q, where('type', '==', filters.type));
+      // canonical field name is `propertyType` in the Property model
+      q = query(q, where('propertyType', '==', filters.type));
     }
     
     if (filters.status) {
@@ -218,7 +219,8 @@ export async function searchProperties(filters: {
     }
 
     if (filters.bedrooms) {
-      q = query(q, where('features.bedrooms', '>=', filters.bedrooms));
+      // bedrooms is a top-level numeric field in the canonical schema
+      q = query(q, where('bedrooms', '>=', filters.bedrooms));
     }
 
     q = query(q, orderBy('createdAt', 'desc'));

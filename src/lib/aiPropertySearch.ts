@@ -5,7 +5,7 @@ import { db } from './firebase';
 interface Property {
   id: string;
   title?: string;
-  type?: string;
+  propertyType?: string;
   location?: string;
   price?: number;
   area?: number;
@@ -107,7 +107,8 @@ export async function searchRelevantProperties(
 
     // Aplicar filtros si existen
     if (params.type) {
-      q = query(q, where('type', '==', params.type));
+      // Firestore stores the field as `propertyType` in the canonical schema
+      q = query(q, where('propertyType', '==', params.type));
     }
 
     if (params.location) {
@@ -156,7 +157,7 @@ export function formatPropertiesForContext(properties: Property[]): string {
 
   properties.forEach((prop, index) => {
     context += `${index + 1}. ${prop.title || 'Propiedad'}\n`;
-    context += `   - Tipo: ${prop.type || 'No especificado'}\n`;
+  context += `   - Tipo: ${prop.propertyType || 'No especificado'}\n`;
     context += `   - Ubicación: ${prop.location || 'No especificada'}\n`;
     context += `   - Precio: $${prop.price?.toLocaleString('es-CO') || 'No especificado'}\n`;
     

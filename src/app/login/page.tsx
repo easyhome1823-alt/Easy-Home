@@ -150,7 +150,7 @@ export default function LoginPage() {
         {/* Logo */}
         <Link href="/" className="flex items-center justify-center space-x-2 mb-8">
           <Home className="w-10 h-10 text-white" />
-          <span className="text-3xl font-bold text-white">Casa Fácil</span>
+          <span className="text-3xl font-bold text-white">Easy Home</span>
         </Link>
 
         {/* Card */}

@@ -1,7 +1,7 @@
-# Casa Fácil - AI Agent Instructions
+# Easy Home  - AI Agent Instructions
 
 ## Project Overview
-Casa Fácil is a Next.js real estate platform with AI-powered property search and chat assistance. The app uses Firebase for data storage, Groq for AI chat capabilities, and follows the Next.js 13+ App Router pattern.
+Easy Home is a Next.js real estate platform with AI-powered property search and chat assistance. The app uses Firebase for data storage, Groq for AI chat capabilities, and follows the Next.js 13+ App Router pattern.
 
 ## Key Architecture Components
 

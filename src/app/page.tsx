@@ -45,7 +45,7 @@ export default function HomePage() {
                 <span className="text-primary-200">Inteligencia Artificial</span>
               </h1>
               <p className="text-xl text-primary-100 mb-8">
-                Casa Fácil conecta arrendadores y arrendatarios de forma inteligente,
+                Easy Home conecta arrendadores y arrendatarios de forma inteligente,
                 usando IA para hacer recomendaciones personalizadas y automatizar búsquedas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -65,7 +65,7 @@ export default function HomePage() {
           <div className="container-custom">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                ¿Por qué elegir Casa Fácil?
+                ¿Por qué elegir Easy Home ?
               </h2>
               <p className="text-xl text-gray-600">
                 La forma más inteligente de encontrar y publicar propiedades
@@ -166,7 +166,7 @@ export default function HomePage() {
               <div>
                 <div className="flex items-center space-x-2 mb-4">
                   <Home className="w-6 h-6" />
-                  <span className="text-xl font-bold">Casa Fácil</span>
+                  <span className="text-xl font-bold">Easy Home</span>
                 </div>
                 <p className="text-gray-400">
                   La plataforma inteligente para encontrar tu hogar ideal.
@@ -182,13 +182,13 @@ export default function HomePage() {
               <div>
                 <h4 className="font-semibold mb-4">Contacto</h4>
                 <p className="text-gray-400">
-                  Email: info@casafacil.com<br />
-                  Teléfono: +57 300 123 4567
+                  Email: easyhome1823@gmail.com<br />
+                  Teléfono: +57 304 413 6906
                 </p>
               </div>
             </div>
             <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-              <p>&copy; 2025 Casa Fácil. Todos los derechos reservados.</p>
+              <p>&copy; 2025 Easy Home. Todos los derechos reservados.</p>
             </div>
           </div>
         </footer>

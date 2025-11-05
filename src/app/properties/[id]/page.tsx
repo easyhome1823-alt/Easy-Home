@@ -46,8 +46,25 @@ export default function PropertyDetailPage() {
       casa: 'Casa',
       habitacion: 'Habitación',
       estudio: 'Estudio',
+      local: 'Local',
     };
+
     return labels[type] || type;
+  };
+
+  // Compatibilidad con dos formatos de "features":
+  // - Array de strings (ej. ["WiFi", "Parqueadero"])
+  // - Objeto con flags y valores (ej. { furnished: true, bedrooms: 2 })
+  const hasFeature = (features: any, key: string) => {
+    if (!features) return false;
+    const keyLower = key.toLowerCase();
+    if (Array.isArray(features)) {
+      return features.some((f: any) => typeof f === 'string' && f.toLowerCase().includes(keyLower));
+    }
+    if (typeof features === 'object') {
+      return Boolean((features as any)[key] || (features as any)[keyLower]);
+    }
+    return false;
   };
 
   const nextImage = () => {
@@ -176,7 +193,7 @@ export default function PropertyDetailPage() {
               </h2>
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-center gap-2">
-                  {property.features.furnished ? (
+                  {hasFeature(property.features, 'amuebl') ? (
                     <Check className="h-5 w-5 text-green-600" />
                   ) : (
                     <X className="h-5 w-5 text-red-600" />
@@ -184,7 +201,7 @@ export default function PropertyDetailPage() {
                   <span>Amueblado</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  {property.features.parking ? (
+                  {hasFeature(property.features, 'parquead') ? (
                     <Check className="h-5 w-5 text-green-600" />
                   ) : (
                     <X className="h-5 w-5 text-red-600" />
@@ -192,7 +209,7 @@ export default function PropertyDetailPage() {
                   <span>Parqueadero</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  {property.features.pets ? (
+                  {hasFeature(property.features, 'masc') || hasFeature(property.features, 'mascota') ? (
                     <Check className="h-5 w-5 text-green-600" />
                   ) : (
                     <X className="h-5 w-5 text-red-600" />
@@ -209,7 +226,7 @@ export default function PropertyDetailPage() {
             <div className="bg-white rounded-lg shadow-md p-6 sticky top-4">
               <div className="mb-4">
                 <span className="inline-block bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                  {getTypeLabel(property.type)}
+                  {getTypeLabel(property.propertyType || (property as any).type)}
                 </span>
               </div>
 
@@ -229,17 +246,17 @@ export default function PropertyDetailPage() {
                 <div className="text-center">
                   <Bed className="h-6 w-6 mx-auto mb-1 text-gray-600" />
                   <div className="text-sm text-gray-600">Habitaciones</div>
-                  <div className="font-semibold">{property.features.bedrooms}</div>
+              <div className="font-semibold">{property.bedrooms ?? (property.features as any)?.bedrooms}</div>
                 </div>
                 <div className="text-center">
                   <Bath className="h-6 w-6 mx-auto mb-1 text-gray-600" />
                   <div className="text-sm text-gray-600">Baños</div>
-                  <div className="font-semibold">{property.features.bathrooms}</div>
+              <div className="font-semibold">{property.bathrooms ?? (property.features as any)?.bathrooms}</div>
                 </div>
                 <div className="text-center">
                   <HomeIcon className="h-6 w-6 mx-auto mb-1 text-gray-600" />
                   <div className="text-sm text-gray-600">Área</div>
-                  <div className="font-semibold">{property.features.area}m²</div>
+              <div className="font-semibold">{(property.area ?? (property.features as any)?.area) || 0}m²</div>
                 </div>
               </div>
 

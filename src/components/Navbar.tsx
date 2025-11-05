@@ -33,7 +33,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Home className="w-8 h-8 text-primary-600" />
-            <span className="text-2xl font-bold text-gray-900">Casa Fácil</span>
+            <span className="text-2xl font-bold text-gray-900">Easy Home</span>
           </Link>
 
           {/* Navigation Links */}

@@ -83,7 +83,7 @@ export default function AdminPage() {
               Panel de Administración
             </h1>
             <p className="text-gray-600">
-              Estadísticas y métricas de la plataforma Casa Fácil
+              Estadísticas y métricas de la plataforma Easy Home
             </p>
           </div>
 

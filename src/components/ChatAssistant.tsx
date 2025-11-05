@@ -105,7 +105,7 @@ export default function ChatAssistant() {
         {chatMessages.length === 0 ? (
           <div className="text-center text-gray-500 mt-20">
             <Bot className="w-16 h-16 mx-auto mb-4 text-gray-300" />
-            <p className="text-sm">¡Hola! Soy tu asistente de Casa Fácil.</p>
+            <p className="text-sm">¡Hola! Soy tu asistente de Easy Home.</p>
             <p className="text-xs mt-2">Pregúntame sobre propiedades, precios o ubicaciones.</p>
           </div>
         ) : (

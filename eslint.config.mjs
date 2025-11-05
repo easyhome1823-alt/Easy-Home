@@ -1,18 +1,40 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+import { defineConfig } from "eslint/config";
+import nextPlugin from "@next/eslint-plugin-next";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
+import reactPlugin from "eslint-plugin-react";
 
-const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...nextTs,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
+export default defineConfig({
+  plugins: {
+    "@next": nextPlugin,
+    "react": reactPlugin,
+    "react-hooks": reactHooksPlugin
+  },
+  extends: [
+    "eslint:recommended",
+    "plugin:@next/next/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  settings: {
+    react: {
+      version: "detect"
+    }
+  },
+  ignores: [
     ".next/**",
     "out/**",
     "build/**",
     "next-env.d.ts",
-  ]),
-]);
-
-export default eslintConfig;
+    "node_modules/**"
+  ],
+  languageOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+    jsx: true,
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true
+      }
+    }
+  }
+});

@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Casa Fácil - Encuentra tu hogar ideal",
+  title: "Easy Home - Encuentra tu hogar ideal",
   description: "Plataforma inteligente que conecta arrendadores y arrendatarios usando IA",
   icons: {
     icon: [

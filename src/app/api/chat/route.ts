@@ -47,7 +47,7 @@ export async function POST(request: Request) {
     }
 
     // 2. Mensaje de sistema con contexto dinámico
-    let systemMessage = `Eres un asistente virtual experto en bienes raíces para Casa Fácil. 
+    let systemMessage = `Eres un asistente virtual experto en bienes raíces para Easy Home. 
 Tu trabajo es ayudar a los usuarios a encontrar propiedades que se ajusten a sus necesidades.
 
 IMPORTANTE:
